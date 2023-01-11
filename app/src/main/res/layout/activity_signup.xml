@@ -4,51 +4,127 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignupAct"
-    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
     android:background="@color/grayBackground"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="9dp"
+    tools:context=".SignupAct">
 
     <LinearLayout
         android:id="@+id/marg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:gravity="right"
+        android:orientation="vertical"
+        android:padding="9dp">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            app:srcCompat="@drawable/icons8_whatsapp_500"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"/>
+            app:srcCompat="@drawable/icons8_whatsapp_500" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="@color/white"
             android:ems="10"
             android:inputType="textPersonName"
+            android:padding="9dp"
             android:text="Name" />
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="@color/white"
             android:ems="10"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:padding="9dp"
+            android:text="Email" />
 
         <EditText
             android:id="@+id/editTextTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="@color/white"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:padding="9dp"
+            android:text="Password" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:padding="3dp"
+            android:text="Already have account" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:text="Signup"
+            app:cornerRadius="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="#F6F2F2"
+                android:drawableLeft="@drawable/icons8_google"
+                android:padding="15dp"
+                android:text="Google"
+                android:textColor="@color/black"
+                app:cornerRadius="4dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/fb_color"
+                android:drawableLeft="@drawable/icons8_facebook"
+                android:padding="15dp"
+                android:text="Facebook"
+                app:cornerRadius="4dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="Signup with Phone"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>
