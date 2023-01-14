@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "213547435386",
+    "project_id": "majid-whatsapp",
+    "storage_bucket": "majid-whatsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:213547435386:android:3dd475402971ec471e42c3",
+        "android_client_info": {
+          "package_name": "com.example.achatx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "213547435386-efmgcljkolbr1ufjin9avjuqglj6aukn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBV6LMdHI9YZyNZl51lMe9zwpGCtz2Oi5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "213547435386-efmgcljkolbr1ufjin9avjuqglj6aukn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
