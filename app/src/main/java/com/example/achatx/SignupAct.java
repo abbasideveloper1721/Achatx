@@ -3,6 +3,7 @@ package com.example.achatx;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -20,6 +21,7 @@ public class SignupAct extends AppCompatActivity {
     ActivitySignupBinding binding;
     private FirebaseAuth auth;
     FirebaseDatabase database;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +31,18 @@ public class SignupAct extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         database = FirebaseDatabase.getInstance();
+        progressDialog = new ProgressDialog(SignupAct.this);
+        progressDialog.setTitle("creating Account");
+        progressDialog.setMessage("we are creating your account");
         binding.buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.show();
                 auth.createUserWithEmailAndPassword(binding.editTextEmailAddress.getText().toString(),binding.editTextPassword.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressDialog.dismiss();
                              if(task.isSuccessful()){
                                  Users user = new Users(binding.editTextTextPersonName.getText().toString(),binding.editTextEmailAddress.getText().toString(),binding.editTextPassword.getText().toString());
                                  String id = task.getResult().getUser().getUid();
