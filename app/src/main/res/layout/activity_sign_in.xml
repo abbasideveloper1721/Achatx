@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/icons8_whatsapp_500" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/eTEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -40,7 +40,7 @@
             android:text="Email" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/eTPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -61,7 +61,7 @@
             android:text="Dont have an account?Signup" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonSignIn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

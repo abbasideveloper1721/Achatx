@@ -65,7 +65,7 @@
             android:text="Password" />
 
         <TextView
-            android:id="@+id/tvsignin"
+            android:id="@+id/tvAlreadyhaveaccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
