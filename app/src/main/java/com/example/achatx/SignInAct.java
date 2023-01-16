@@ -110,7 +110,7 @@ public class SignInAct extends AppCompatActivity {
     int RC_SIGN_IN = 65;
     private void signIn(){
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-startActivityForResult(signInIntent,RC_SIGN_IN);
+        startActivityForResult(signInIntent,RC_SIGN_IN);
 
     }
 
@@ -137,9 +137,13 @@ startActivityForResult(signInIntent,RC_SIGN_IN);
                         if (task.isSuccessful()){
                             Log.d("TAG","signInWithCredntials:Success");
                             FirebaseUser user = auth.getCurrentUser();
+                            Intent intent = new Intent(SignInAct.this ,MainActivity.class);
+                            startActivity(intent);
                            // updateUI(user);
                         }else{
                             Log.w("TAG","signInWithCredntials:Failure",task.getException());
+
+
                            // Snackbar.make(mBinding.mainLayout,"Authentication  Failed",Snackbar.LENGTH_SHORT).show();
                            // updateUI(null);
                         }
