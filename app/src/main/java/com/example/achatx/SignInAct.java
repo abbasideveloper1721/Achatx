@@ -140,6 +140,7 @@ public class SignInAct extends AppCompatActivity {
                             Intent intent = new Intent(SignInAct.this ,MainActivity.class);
                             startActivity(intent);
                            // updateUI(user);
+                            //
                         }else{
                             Log.w("TAG","signInWithCredntials:Failure",task.getException());
 
