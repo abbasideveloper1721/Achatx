@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.example.achatx.Adapters.FragmentAdapter;
 import com.example.achatx.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -23,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         auth = FirebaseAuth.getInstance();
+
+
+        binding.viewpager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
+        binding.tablayout.setupWithViewPager(binding.viewpager);
 
     }
 

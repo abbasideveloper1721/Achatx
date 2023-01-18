@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.achatx.Models.Users;
 import com.example.achatx.databinding.ActivitySignInBinding;
 import com.example.achatx.databinding.ActivitySignupBinding;
 import com.google.android.gms.auth.api.Auth;
@@ -37,6 +38,7 @@ public class SignInAct extends AppCompatActivity {
     GoogleSignInClient mGoogleSignInClient;
 
     ProgressDialog progressDialog;
+    FirebaseDatabase database;
 
 
 
@@ -48,6 +50,7 @@ public class SignInAct extends AppCompatActivity {
         getSupportActionBar().hide();
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(SignInAct.this);
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Login to your account");
@@ -137,12 +140,20 @@ public class SignInAct extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Log.d("TAG","signInWithCredntials:Success");
                             FirebaseUser user = auth.getCurrentUser();
+                            Users users = new Users();
+                            users.setUserID(user.getUid());
+                            users.setUserName(user.getDisplayName());
+                            users.setProfilepic(user.getPhotoUrl().toString());
+                            database.getReference().child("Users").child(user.getUid()).setValue(users);
+                            Log.d("TAG","Google credentials saved in database");
                             Intent intent = new Intent(SignInAct.this ,MainActivity.class);
                             startActivity(intent);
+                            Toast.makeText(SignInAct.this, "Signed In with Google:Success", Toast.LENGTH_SHORT).show();
                            // updateUI(user);
                             //
                         }else{
                             Log.w("TAG","signInWithCredntials:Failure",task.getException());
+                            Toast.makeText(SignInAct.this, "Signed In with Google:Failed", Toast.LENGTH_SHORT).show();
 
 
                            // Snackbar.make(mBinding.mainLayout,"Authentication  Failed",Snackbar.LENGTH_SHORT).show();
