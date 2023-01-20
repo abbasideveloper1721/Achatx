@@ -55,7 +55,7 @@ public class Users {
         this.password = password;
     }
 
-    public String getUserID() {
+    public String getUserID(String key) {
         return userID;
     }
 

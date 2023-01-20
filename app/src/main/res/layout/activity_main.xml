@@ -13,7 +13,7 @@
         android:layout_height="56dp"
         android:background="@color/colorPrimary"
         android:elevation="12dp"
-        app:tabIndicator="@color/white"
+        app:tabIndicatorColor="@color/white"
         app:tabSelectedTextColor="@color/white"
         app:tabMaxWidth="0dp"
         app:tabGravity="fill"

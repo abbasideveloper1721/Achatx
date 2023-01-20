@@ -15,9 +15,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         super(fm);
     }
 
-    public FragmentAdapter(@NonNull FragmentManager fm, int behavior) {
-        super(fm, behavior);
-    }
+
 
     @NonNull
     @Override
