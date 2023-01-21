@@ -1,6 +1,7 @@
 package com.example.achatx.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.achatx.ChatDetailActivity;
 import com.example.achatx.Models.Users;
 import com.example.achatx.R;
 import com.squareup.picasso.Picasso;
@@ -37,6 +39,17 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder> 
         Users users = list.get(position);
         Picasso.get().load(users.getProfilepic()).placeholder(R.drawable.avatar).into(holder.image);
         holder.UserName.setText(users.getUserName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChatDetailActivity.class);
+                intent.putExtra("userId",users.getUserID());
+                intent.putExtra("profilepic",users.getProfilepic());
+                intent.putExtra("userId",users.getUserName());
+
+                context.startActivity(intent);
+            }
+        });
 
 
     }

@@ -22,6 +22,9 @@ public class Users {
 
     }
 
+    public String getUserID() {
+        return userID;
+    }
 
     public String getProfilepic() {
         return profilepic;
