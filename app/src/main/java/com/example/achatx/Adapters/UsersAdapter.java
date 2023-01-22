@@ -45,7 +45,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.viewHolder> 
                 Intent intent = new Intent(context, ChatDetailActivity.class);
                 intent.putExtra("userId",users.getUserID());
                 intent.putExtra("profilepic",users.getProfilepic());
-                intent.putExtra("userId",users.getUserName());
+                intent.putExtra("userName",users.getUserName());
 
                 context.startActivity(intent);
             }

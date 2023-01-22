@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.example.achatx.databinding.ActivityChatDetailBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class ChatDetailActivity extends AppCompatActivity {
     ActivityChatDetailBinding binding;
@@ -24,6 +25,12 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         String senderId =auth.getUid();
         String reciveId = getIntent().getStringExtra("userId");
+        String profilepic = getIntent().getStringExtra("profilepic");
+        String userName = getIntent().getStringExtra("userName");
+
+
+        binding.UserName.setText(userName);
+        Picasso.get().load(profilepic).placeholder(R.drawable.avatar).into(binding.profileImage);
 
 
     }
