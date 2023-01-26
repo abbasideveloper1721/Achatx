@@ -2,7 +2,9 @@ package com.example.achatx;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.achatx.databinding.ActivityChatDetailBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +22,7 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().hide();
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
@@ -31,6 +34,14 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         binding.UserName.setText(userName);
         Picasso.get().load(profilepic).placeholder(R.drawable.avatar).into(binding.profileImage);
+
+        binding.BackArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ChatDetailActivity.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
