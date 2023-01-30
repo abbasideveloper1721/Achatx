@@ -1,15 +1,20 @@
 package com.example.achatx;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.achatx.Adapters.ChatAdapter;
+import com.example.achatx.Models.MessagesModel;
 import com.example.achatx.databinding.ActivityChatDetailBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class ChatDetailActivity extends AppCompatActivity {
     ActivityChatDetailBinding binding;
@@ -26,7 +31,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
-        String senderId =auth.getUid();
+        final String senderId =auth.getUid();
         String reciveId = getIntent().getStringExtra("userId");
         String profilepic = getIntent().getStringExtra("profilepic");
         String userName = getIntent().getStringExtra("userName");
@@ -42,6 +47,11 @@ public class ChatDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        final ArrayList<MessagesModel> messagesModels = new ArrayList<>();
+        final ChatAdapter chatAdapter = new ChatAdapter(messagesModels,this);
+        binding.chatRecyclerView.setAdapter(chatAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        binding.chatRecyclerView.setLayoutManager(layoutManager);
 
 
     }
