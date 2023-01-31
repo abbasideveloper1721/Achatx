@@ -49,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,SignInAct.class);
                 startActivity(intent);
                 break;
-
+            case  R.id.groupchat:
+                Intent intentt = new Intent(MainActivity.this,groupchatActivity.class);
+                startActivity(intentt);
+                break;
 
     }
     return true;

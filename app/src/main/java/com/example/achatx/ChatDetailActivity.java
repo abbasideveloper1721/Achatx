@@ -1,5 +1,6 @@
 package com.example.achatx;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -12,7 +13,10 @@ import com.example.achatx.Models.MessagesModel;
 import com.example.achatx.databinding.ActivityChatDetailBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -57,6 +61,29 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         final String senderRoom = senderId+reciveId;
         final String reciverRoom = reciveId+senderId;
+
+
+         database.getReference().child("chats")
+                         .child(senderRoom)
+                                 .addValueEventListener(new ValueEventListener() {
+                                     @Override
+                                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                         messagesModels.clear();
+                                         for (DataSnapshot dataSnapshot1 : snapshot.getChildren()){
+
+                                             MessagesModel model = dataSnapshot1.getValue(MessagesModel.class);
+                                                     messagesModels.add(model);
+                                         }
+                                         chatAdapter.notifyDataSetChanged();
+                                     }
+
+                                     @Override
+                                     public void onCancelled(@NonNull DatabaseError error) {
+
+                                     }
+                                 });
+
+
 
         binding.sendMsgbtn.setOnClickListener(new View.OnClickListener() {
             @Override
