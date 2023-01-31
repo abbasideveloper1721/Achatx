@@ -12,36 +12,44 @@
     android:maxWidth="310dp"
     android:maxHeight="400dp"
     android:minHeight="30dp"
+    android:layout_marginTop="4dp"
     >
 
     <TextView
         android:id="@+id/reciverMsgtext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textImeMultiLine"
-        android:maxWidth="270dp"
-        android:minWidth="50dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/recivertexttime"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        android:layout_margin="8dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="3dp"
+        android:inputType="textLongMessage|textMultiLine"
+        android:maxWidth="270dp"
+        android:minWidth="50dp"
+        android:text="TextView"
+
+        />
 
     <TextView
         android:id="@+id/recivertexttime"
-        android:layout_width="70dp"
-        android:layout_height="22dp"
-        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12:00pm"
+        android:textSize="6sp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/reciverMsgtext"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="5dp" />
+        app:layout_constraintGuide_begin="12dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
