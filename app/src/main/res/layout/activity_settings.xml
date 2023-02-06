@@ -68,7 +68,8 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter your user name"
+                android:text=""
+                android:background="@color/colorPrimary"
                 android:textColor="@color/white" />
         </LinearLayout>
 
@@ -93,7 +94,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/white" />
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                />
 
 
         </LinearLayout>
@@ -127,52 +130,62 @@
             android:layout_marginLeft="50dp"
             android:drawableLeft="@drawable/privacypolicy"
             android:drawablePadding="15dp"
-            android:text="TextView"
+            android:text="Privacy Policy"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            app:drawableTint="@color/colorPrimary"
+            android:textStyle="bold"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/textView4"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:drawableLeft="@drawable/privacypolicy"
+            android:drawableLeft="@drawable/informationbutton"
             android:drawablePadding="15dp"
-            android:text="TextView"
+            android:text="About Us"
             android:textColor="@color/black"
             android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableTint="@color/colorPrimary"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:drawableLeft="@drawable/addafriend"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:text="Invite a friend"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:drawableTint="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:drawableLeft="@drawable/notification"
+            android:drawablePadding="15dp"
+            android:padding="10dp"
+            android:text="Notification"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:drawableTint="@color/colorPrimary"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:drawableLeft="@drawable/privacypolicy"
+            android:drawableLeft="@drawable/handshake"
             android:drawablePadding="15dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:drawableLeft="@drawable/privacypolicy"
-            android:drawablePadding="15dp"
-            android:text="TextView"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:drawableLeft="@drawable/privacypolicy"
-            android:drawablePadding="15dp"
-            android:text="TextView"
+            app:drawableTint="@color/colorPrimary"
+            android:text="Help"
+            android:padding="10dp"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"/>
