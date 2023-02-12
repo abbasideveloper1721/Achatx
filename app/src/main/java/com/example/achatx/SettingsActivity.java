@@ -3,6 +3,7 @@ package com.example.achatx;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,13 +12,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.achatx.Models.Users;
 import com.example.achatx.databinding.ActivitySettingsBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -46,6 +52,11 @@ public class SettingsActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         mtakePhoto = registerForActivityResult(new
                         ActivityResultContracts.GetContent(),
+
+
+
+
+
                 new ActivityResultCallback<Uri>() {
                     @Override
                     public void onActivityResult(Uri result) {
@@ -82,7 +93,23 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
+database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+        .addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Users users = snapshot.getValue(Users.class);
+                Picasso.get()
+                        .load(users.getProfilepic())
+                        .placeholder(R.drawable.avatar)
+                        .into(binding.profileimage);
 
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
