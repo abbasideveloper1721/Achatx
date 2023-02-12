@@ -58,7 +58,14 @@ public class SettingsActivity extends AppCompatActivity {
                         reference.putFile(imageuri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Toast.makeText(SettingsActivity.this,"image uploaded",Toast.LENGTH_SHORT).show();
+                               reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                   @Override
+                                   public void onSuccess(Uri uri) {
+                                       database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                                               .child("profilepic").setValue(uri.toString());
+                                       Toast.makeText(SettingsActivity.this,"String updated",Toast.LENGTH_SHORT).show();
+                                   }
+                               });
                             }
                         });
 
