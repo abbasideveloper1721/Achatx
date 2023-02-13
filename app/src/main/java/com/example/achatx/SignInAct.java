@@ -31,7 +31,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.core.Tag;
 
-public class SignInAct extends AppCompatActivity {
+public class    SignInAct extends AppCompatActivity {
 
     ActivitySignInBinding binding;
     FirebaseAuth auth;
@@ -68,6 +68,14 @@ public class SignInAct extends AppCompatActivity {
         binding.buttonSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(binding.eTEmailAddress.getText().toString().isEmpty()){
+                    binding.eTEmailAddress.setText("Enter your Email");
+                    return;
+                }
+                if(binding.eTPassword.getText().toString().isEmpty()){
+                    binding.eTPassword.setText("Enter your Email");
+                    return;
+                }
                 progressDialog.show();
                 auth.signInWithEmailAndPassword(binding.eTEmailAddress.getText().toString(),binding.eTPassword.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

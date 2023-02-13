@@ -1,7 +1,7 @@
 package com.example.achatx.Models;
 
 public class MessagesModel {
-    String uID,message;
+    String uID,message,msgid;
     Long timestamp;
 
     public MessagesModel(String uID, String message) {
@@ -13,6 +13,14 @@ public class MessagesModel {
         this.uID = uID;
         this.message = message;
         this.timestamp = timestamp;
+    }
+
+    public String getMsgid() {
+        return msgid;
+    }
+
+    public void setMsgid(String msgid) {
+        this.msgid = msgid;
     }
 
     public String getuID() {

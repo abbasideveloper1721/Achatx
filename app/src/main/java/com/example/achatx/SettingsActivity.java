@@ -25,6 +25,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.HashMap;
+
 public class SettingsActivity extends AppCompatActivity {
 
     ActivitySettingsBinding binding;
@@ -74,7 +76,10 @@ public class SettingsActivity extends AppCompatActivity {
                                    public void onSuccess(Uri uri) {
                                        database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                                                .child("profilepic").setValue(uri.toString());
+
+
                                        Toast.makeText(SettingsActivity.this,"String updated",Toast.LENGTH_SHORT).show();
+
                                    }
                                });
                             }
@@ -91,6 +96,21 @@ public class SettingsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        binding.savesetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String status = binding.etstatus.getText().toString();
+                String username = binding.etusername.getText().toString();
+                HashMap<String,Object> obj = new HashMap<>();
+                obj.put("userName" , username);
+                obj.put("status" , status);
+                database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                        .updateChildren(obj);
+                Toast.makeText(SettingsActivity.this,"Data updated",Toast.LENGTH_SHORT).show();
+                binding.etstatus.setText("");
+                binding.etusername.setText("");
+            }
+        });
 
 
 database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
@@ -102,6 +122,8 @@ database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()
                         .load(users.getProfilepic())
                         .placeholder(R.drawable.avatar)
                         .into(binding.profileimage);
+                binding.etstatus.setText(users.getStatus());
+                binding.etusername.setText(users.getUserName());
 
             }
 

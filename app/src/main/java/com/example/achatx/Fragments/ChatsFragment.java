@@ -14,6 +14,7 @@ import com.example.achatx.Adapters.UsersAdapter;
 import com.example.achatx.Models.Users;
 import com.example.achatx.R;
 import com.example.achatx.databinding.FragmentChatBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -53,8 +54,9 @@ public class ChatsFragment extends Fragment {
                 for (DataSnapshot dataSnapshot:snapshot.getChildren()){
                     Users users = dataSnapshot.getValue(Users.class);
                     users.setUserID(dataSnapshot.getKey());
+                    if (!users.getUserID().equals(FirebaseAuth.getInstance().getUid())){
                     list.add(users);
-                }
+                    }}
                 adapter.notifyDataSetChanged();
             }
 

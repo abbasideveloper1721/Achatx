@@ -2,17 +2,27 @@ package com.example.achatx.Models;
 
 public class Users {
 
-    String profilepic,userName,mail,password,userID,lastMessage;
+    String profilepic,userName,mail,password,userID,lastMessage,Status;
 
-    public Users(String profilepic, String userName, String mail, String password, String userID, String lastMessage) {
+    public Users(String profilepic, String userName, String mail, String password, String userID, String lastMessage ,String Status) {
         this.profilepic = profilepic;
         this.userName = userName;
         this.mail = mail;
         this.password = password;
         this.userID = userID;
         this.lastMessage = lastMessage;
+        this.Status = Status;
     }
     public Users(){}
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
     //signup Constructoir
     public Users(String userName, String mail, String password) {
 
