@@ -73,7 +73,7 @@ public class    SignInAct extends AppCompatActivity {
                     return;
                 }
                 if(binding.eTPassword.getText().toString().isEmpty()){
-                    binding.eTPassword.setText("Enter your Email");
+                    binding.eTPassword.setText("Enter your password");
                     return;
                 }
                 progressDialog.show();

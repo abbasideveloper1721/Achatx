@@ -13,7 +13,6 @@
         android:layout_height="675dp"
         android:layout_above="@+id/linertextsent"
         android:layout_below="@id/toolbar"
-        android:layout_alignParentBottom="true"
         android:layout_marginTop="0dp">
 
     </androidx.recyclerview.widget.RecyclerView>
@@ -34,7 +33,7 @@
             android:background="@drawable/chat_bg"
             android:hint="Enter your message"
             android:padding="15dp"
-            android:text="TextView"
+
 
             />
 
